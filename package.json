@@ -309,6 +309,11 @@
                     "%cosmywasmy.chains.items.signType.ethsecp256k1.desc%"
                   ]
                 },
+                "coinType": {
+                  "type": "string",
+                  "default": "118", 
+                  "description": "%cosmywasmy.chains.items.coinType.desc%"
+                },
                 "chainDenom": {
                   "type": "string",
                   "description": "%cosmywasmy.chains.items.chainDenom.desc%"
@@ -477,6 +482,7 @@
                 "rpcEndpoint": "http://localhost:26657",
                 "defaultGasPrice": "0.015",
                 "chainDenom": "cony",
+                "coinType": "438",
                 "faucetEndpoint": "http://localhost:8081"
               },
               {
@@ -487,6 +493,7 @@
                 "rpcEndpoint": "https://ebony-rpc.finschia.io/",
                 "defaultGasPrice": "0.015",
                 "chainDenom": "tcony",
+                "coinType": "438",
                 "accountExplorerLink": "https://explorer.blockchain.line.me/ebony/address/${accountAddress}",
                 "txExplorerLink": "https://explorer.blockchain.line.me/ebony/transaction/${txHash}",
                 "faucetEndpoint": "https://faucet-ebonynw.line-apps.com"

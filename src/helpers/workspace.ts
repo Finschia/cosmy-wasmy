@@ -39,6 +39,7 @@ export class Workspace {
     public static SetWorkspaceChainConfig(chainConfigName: string) {
         vscode.workspace.getConfiguration().update(Constants.CONFIGURATION_CHAIN_CONFIG_NAME, chainConfigName, vscode.ConfigurationTarget.Workspace);
         global.workspaceChain = this.GetChainConfig(chainConfigName);
+        global.workspaceChain.coinType = global.workspaceChain.coinType || "118";
     }
 
     public static SetWorkspaceSchemaAutoComplete(schemaPath: any) {
@@ -136,6 +137,7 @@ export class ChainConfig {
     chainGasDenom!: string;
     chainDenomDecimals!: string;
     signType!: string;
+    coinType!: string;
 
     public Validate() {
         if (!this) {
