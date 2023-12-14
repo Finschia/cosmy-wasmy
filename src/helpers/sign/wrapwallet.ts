@@ -15,13 +15,12 @@ export class WrapWallet {
     private hdPath:HdPath;
     public mnemonic;
 
-    constructor(type, coinType, mnemonic,  options) {
+    constructor(signType, coinType, mnemonic,  options) {
         this.mnemonic = mnemonic;
-        this.signType = WrapWallet.isEthSecp256k1(type) ? SIGN_TYPE.ethsecp256k1 : SIGN_TYPE.tmsecp256k1;
-        const currentCoinType = coinType || "118";
+        this.signType = signType;
         this.hdPath = [
             Slip10RawIndex.hardened(44),
-            Slip10RawIndex.hardened(Number(currentCoinType)),
+            Slip10RawIndex.hardened(Number(coinType)),
             Slip10RawIndex.hardened(0),
             Slip10RawIndex.normal(0),
             Slip10RawIndex.normal(0),
@@ -34,18 +33,11 @@ export class WrapWallet {
         });
     }
 
-    static async generate(type, length, options = {}) {
-        if (WrapWallet.isEthSecp256k1(type)){
+    static async generate(signType, length, options = {}) {
+        if (signType === SIGN_TYPE.ethsecp256k1){
             return EthSecp256k1HdWallet.generate(length, options);
         }
         return DirectSecp256k1HdWallet.generate(length, options);
-    }
-
-    static isEthSecp256k1(type){
-        if (typeof type !== "undefined" && type !== null && type !== "" && type === SIGN_TYPE.ethsecp256k1){
-            return true;
-        }
-        return false;
     }
 
     async signDirect(signerAddress, signDoc) {
