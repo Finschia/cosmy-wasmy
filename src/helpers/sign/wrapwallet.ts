@@ -18,9 +18,10 @@ export class WrapWallet {
     constructor(type, coinType, mnemonic,  options) {
         this.mnemonic = mnemonic;
         this.signType = WrapWallet.isEthSecp256k1(type) ? SIGN_TYPE.ethsecp256k1 : SIGN_TYPE.tmsecp256k1;
+        const currentCoinType = coinType || "118";
         this.hdPath = [
             Slip10RawIndex.hardened(44),
-            Slip10RawIndex.hardened(Number(coinType)),
+            Slip10RawIndex.hardened(Number(currentCoinType)),
             Slip10RawIndex.hardened(0),
             Slip10RawIndex.normal(0),
             Slip10RawIndex.normal(0),
