@@ -44,22 +44,22 @@ export class TerminalCmds {
 				fileMatch: [
 					"*.json"
 				],
-				url: "/schema/execute_msg.json"
+				url: "/schema/raw/execute.json"
 			}, {
 				fileMatch: [
 					"*.json"
 				],
-				url: "/schema/query_msg.json"
+				url: "/schema/raw/query.json"
 			}, {
 				fileMatch: [
 					"*.json"
 				],
-				url: "/schema/instantiate_msg.json"
+				url: "/schema/raw/instantiate.json"
 			}, {
 				fileMatch: [
 					"*.json"
 				],
-				url: "/schema/migrate_msg.json"
+				url: "/schema/raw/migrate.json"
 			}];
 			Workspace.SetWorkspaceSchemaAutoComplete(schema);
 		});
