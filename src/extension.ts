@@ -14,7 +14,6 @@ import { FileWatcher } from './helpers/fileWatcher';
 export async function activate(context: vscode.ExtensionContext) {
 
 	global.workspaceChain = Workspace.GetWorkspaceChainConfig();
-	
 	Utils.CreateConnectedChainStatusItem();
 	Utils.BeakerAutoSync(context);
 
