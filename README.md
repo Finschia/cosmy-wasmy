@@ -113,6 +113,8 @@ The following chains are pre-configured by default. Any other chains can be manu
 | 9 | [OKTC](https://www.okx.com/oktc)       | testnet     | exchain-65    |
 | 10 | [OKBC](https://www.okx.com/okbc)      | localnet    | okbchain-67   |
 | 11 | [OKBC](https://www.okx.com/okbc)      | testnet     | okbchaintest-195  |
+| 12 | [Finschia](https://www.finschia.network/)      | localnet    | simd-testing   |
+| 13 | [Finschia](https://www.finschia.network/)      | testnet     | ebony-2  |
 
 You can set up the extension settings at
 > File > Preferences > Settings > Extensions > Cosmy Wasmy
@@ -140,6 +142,7 @@ The structure of the expected setting for `cosmywasamy.chains`:
         "chainGasDenom": "uosmo", // The micro denom used to pay for gas
         "chainDenomDecimals": "6", // Default decimals to display account balance
         "signType": "tmsecp256k1", // Which signing scheme to use? tmsecp256k1 or ethsecp256k1
+        "coinType": "118", // Coin type registered for the chain 
         "chainDenom": "uosmo", // the micro denom used to track account balance
         "faucetEndpoint": "http://localhost:8000", //Faucet address and port to request funds
         "accountExplorerLink": "https://testnet.mintscan.io/osmosis-testnet/account/${accountAddress}", //Block explorer url which includes '${accountAddress}' text to generate account url

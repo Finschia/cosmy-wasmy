@@ -3,8 +3,8 @@ import { EthSecp256k1HdWallet } from './ethsecp256k1hdwallet';
 import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
 import { Secp256k1HdWallet } from "@cosmjs/launchpad";
 import { DirectSecp256k1HdWalletOptions } from "@cosmjs/proto-signing/build/directsecp256k1hdwallet";
-import { HdPath,Slip10RawIndex } from "@cosmjs/crypto";
 import { Constants } from '../../constants';
+import { HdPath,Slip10RawIndex } from "@cosmjs/amino/node_modules/@cosmjs/crypto";
 
 export class WrapWallet {
     private signType;
