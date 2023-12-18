@@ -44,6 +44,26 @@ export class TerminalCmds {
 				fileMatch: [
 					"*.json"
 				],
+				url: "/schema/execute_msg.json"
+			}, {
+				fileMatch: [
+					"*.json"
+				],
+				url: "/schema/query_msg.json"
+			}, {
+				fileMatch: [
+					"*.json"
+				],
+				url: "/schema/instantiate_msg.json"
+			}, {
+				fileMatch: [
+					"*.json"
+				],
+				url: "/schema/migrate_msg.json"
+			}, {
+				fileMatch: [
+					"*.json"
+				],
 				url: "/schema/raw/execute.json"
 			}, {
 				fileMatch: [
