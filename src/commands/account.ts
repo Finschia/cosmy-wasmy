@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { WrapWallet,SIGN_TYPE } from '../helpers/sign/wrapwallet';
+import { WrapWallet } from '../helpers/sign/wrapwallet';
 import { Constants } from '../constants';
 import { Cosmwasm, CosmwasmAPI } from '../helpers/cosmwasm/api';
 import { Workspace } from '../helpers/workspace';
@@ -33,7 +33,7 @@ export class AccountCmds {
 						vscode.window.showQuickPick(options).then(rr => {
 							if (rr) {
 								if (rr === vscode.l10n.t("Generate seed phrase for me (Recommended)")) {
-									let defaultLen = global.workspaceChain.signType === SIGN_TYPE.ethsecp256k1 ? 12 : 24;
+									let defaultLen = global.workspaceChain.signType === Constants.SIGN_TYPE.ethsecp256k1 ? 12 : 24;
 									WrapWallet.generate(global.workspaceChain.signType, defaultLen).then(wallet => {
 										const account = new Account(accountLabel, wallet.mnemonic);
 										saveNewAccount(account);

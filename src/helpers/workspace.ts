@@ -154,8 +154,8 @@ export class ChainConfig {
           txExplorerLink: this.txExplorerLink,
           chainGasDenom: this.chainGasDenom,
           chainDenomDecimals: this.chainDenomDecimals,
-          signType: this.signType="tmsecp256k1",
-          coinType: this.coinType="118",
+          signType: this.signType = Constants.SIGN_TYPE.tmsecp256k1,
+          coinType: this.coinType = Constants.COMMON_COIN_TYPE,
         } = config);
       }
 
@@ -188,7 +188,7 @@ export class ChainConfig {
             vscode.window.showErrorMessage(vscode.l10n.t("Selected chain denom is empty, please check"));
             throw new Error(vscode.l10n.t("Chain denom is empty"));
         }
-        if (!["tmsecp256k1","ethsecp256k1"].includes(this.signType)) {
+        if (!Object.values(Constants.SIGN_TYPE).includes(this.signType)) {
             vscode.window.showErrorMessage(vscode.l10n.t("Selected chain sign type is uncorrect, please check"));
             throw new Error(vscode.l10n.t("Chain sign type is uncorrect"));
         }

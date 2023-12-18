@@ -4,11 +4,7 @@ import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
 import { Secp256k1HdWallet } from "@cosmjs/launchpad";
 import { DirectSecp256k1HdWalletOptions } from "@cosmjs/proto-signing/build/directsecp256k1hdwallet";
 import { HdPath,Slip10RawIndex } from "@cosmjs/crypto";
-
-export const SIGN_TYPE = {
-    ethsecp256k1: 'ethsecp256k1',
-    tmsecp256k1: 'tmsecp256k1'
-};
+import { Constants } from '../../constants';
 
 export class WrapWallet {
     private signType;
@@ -34,7 +30,7 @@ export class WrapWallet {
     }
 
     static async generate(signType, length, options = {}) {
-        if (signType === SIGN_TYPE.ethsecp256k1){
+        if (signType === Constants.SIGN_TYPE.ethsecp256k1){
             return EthSecp256k1HdWallet.generate(length, options);
         }
         return DirectSecp256k1HdWallet.generate(length, options);
@@ -46,7 +42,7 @@ export class WrapWallet {
     }
 
     async signAmino(signerAddress, signDoc) {
-        let wallet = (this.signType === SIGN_TYPE.ethsecp256k1) ? (await EthSecp256k1HdWallet.fromMnemonic(this.mnemonic, {
+        let wallet = (this.signType === Constants.SIGN_TYPE.ethsecp256k1) ? (await EthSecp256k1HdWallet.fromMnemonic(this.mnemonic, {
             prefix: global.workspaceChain.addressPrefix,
         },)) : (await Secp256k1HdWallet.fromMnemonic(this.mnemonic, {
             prefix: global.workspaceChain.addressPrefix,
@@ -60,7 +56,7 @@ export class WrapWallet {
     }
 
     async getWallet(){
-        if (this.signType !== SIGN_TYPE.ethsecp256k1){
+        if (this.signType !== Constants.SIGN_TYPE.ethsecp256k1){
             return DirectSecp256k1HdWallet.fromMnemonic(this.mnemonic, {
                 hdPaths: [this.hdPath],
                 prefix: global.workspaceChain.addressPrefix,
